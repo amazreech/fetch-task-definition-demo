@@ -87,7 +87,7 @@ jobs:
     - name: Deploy Amazon ECS task definition
       uses: shesaave/amazon-ecs-deploy-task-definition@4277959b578da6b37ba8a6cd8093457e14830ea0
       with:
-        task-definition: one-off-input-task-definition.json
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
         #service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         #wait-for-service-stability: true
