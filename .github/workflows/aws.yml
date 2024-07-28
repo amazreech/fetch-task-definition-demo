@@ -81,7 +81,6 @@ jobs:
       id: task-def
       uses: shesaave/amazon-ecs-render-task-definition@e4f5e73c602c4dde00b630f40404a9082feb345f
       with:
-        #task-definition: ${{ env.ECS_TASK_DEFINITION }}
         task-definition-arn: ${{ steps.task-def.outputs.task-definition-arn }}
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
@@ -89,7 +88,7 @@ jobs:
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${{ steps.task-def.outputs.task-definition-arn}}
+        task-definition: ${{ steps.task-def.outputs.task-definition}}
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
