@@ -35,7 +35,7 @@ env:
   ECR_REPOSITORY: fetch-def-repo          # set this to your Amazon ECR repository name
   ECS_SERVICE: fetch-def-service                # set this to your Amazon ECS service name
   ECS_CLUSTER: fetch-def-cluster                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: task-definition.json                                          # file, e.g. .aws/task-definition.json
+  ECS_TASK_DEFINITION: arn:aws:ecs:us-west-2:851725652419:task-definition/fetch-def-task-definition:10                                          # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: fetch-app          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
@@ -80,7 +80,7 @@ jobs:
       id: task-def
       uses: shesaave/amazon-ecs-render-task-definition@9323e9b00a7b822e6c39ef71aced4ba80150370c
       with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
+        task-definition-arn: ${{ env.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
