@@ -33,7 +33,7 @@ on:
 env:
   AWS_REGION: us-west-2                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: fetch-def-repo          # set this to your Amazon ECR repository name
-  #ECS_SERVICE: MY_ECS_SERVICE                 # set this to your Amazon ECS service name
+  ECS_SERVICE: fetch-def-service                # set this to your Amazon ECS service name
   ECS_CLUSTER: fetch-def-cluster                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json                                          # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: fetch-app          # set this to the name of the container in the
@@ -88,6 +88,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        #service: ${{ env.ECS_SERVICE }}
+        service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
-        #wait-for-service-stability: true
+        wait-for-service-stability: true
