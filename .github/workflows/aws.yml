@@ -78,9 +78,9 @@ jobs:
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
-      uses: shesaave/amazon-ecs-render-task-definition@694fe7174c4bacc8ffc5e93d8e1d1db99b541fc2
+      uses: shesaave/amazon-ecs-render-task-definition@7580448167d03e2937b76555b79aa6b8a90d369a
       with:
-        task-definition-arn: arn:aws:ecs:us-west-2:851725652419:task-definition/fetch-def-task-definition:1 
+        task-definition-arn: ${{ env.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
