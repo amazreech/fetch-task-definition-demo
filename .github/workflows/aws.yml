@@ -35,7 +35,7 @@ env:
   ECR_REPOSITORY: fetch-def-repo          # set this to your Amazon ECR repository name
   ECS_SERVICE: fetch-def-service                # set this to your Amazon ECS service name
   ECS_CLUSTER: fetch-def-cluster                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: fetch-def-task-definition                                          # file, e.g. .aws/task-definition.json
+  ECS_TASK_DEFINITION: arn:aws:ecs:us-west-2:851725652419:task-definition/fetch-def-task-definition:1                                          # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: fetch-app          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
