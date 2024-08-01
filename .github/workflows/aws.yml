@@ -80,6 +80,6 @@ jobs:
       id: task-def
       uses: shesaave/amazon-ecs-render-task-definition@9323e9b00a7b822e6c39ef71aced4ba80150370c
       with:
-        task-definition-file: ${{ env.ECS_TASK_DEFINITION }}
+        task-definition: ${{ env.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
