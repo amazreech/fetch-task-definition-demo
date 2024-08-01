@@ -81,6 +81,7 @@ jobs:
       uses: shesaave/amazon-ecs-render-task-definition@9323e9b00a7b822e6c39ef71aced4ba80150370c
       with:
         task-definition-family: ${{ env.ECS_TASK_DEFINITION }}
+        task-definition-revision: 1
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
