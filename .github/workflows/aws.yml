@@ -33,7 +33,7 @@ on:
 
 env:
   AWS_REGION: us-west-2                                                                                                       # Preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: github-actions-repo                                                                                         # Amazon ECR repository name
+  ECR_REPOSITORY: github-actions-fetch-task-def                                                                               # Amazon ECR repository name
   ECS_SERVICE: github-actions-demo-service                                                                                    # Amazon ECS service name
   ECS_CLUSTER: Test_Cluster                                                                                                   # Amazon ECS cluster name
   ECS_TASK_DEFINITION: arn:aws:ecs:us-west-2:413216369237:task-definition/test-task-def:1                                     # Task Definition file, e.g. .aws/task-definition.json
