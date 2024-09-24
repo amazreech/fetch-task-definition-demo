@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-west-2:851725652419:task-definition/fetch-def-task-definition:5",
+    "taskDefinitionArn": "arn:aws:ecs:us-west-2:413216369237:task-definition/GA-fetch-task-definition:1",
     "containerDefinitions": [
         {
-            "name": "fetch-app",
-            "image": "851725652419.dkr.ecr.us-west-2.amazonaws.com/fetch-def-repo:99c91b65bf5591e7948eea9b5025494bd87ae7c8",
+            "name": "app",
+            "image": "413216369237.dkr.ecr.us-west-2.amazonaws.com/github-actions-fetch-task-def:6b19e4cfd5e0e960f111f39f7700054e727b8c51",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "fetch-app-port",
+                    "name": "app-80-tcp",
                     "containerPort": 80,
                     "hostPort": 80,
                     "protocol": "tcp",
@@ -16,24 +16,29 @@
             ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/fetch-def-task-definition",
+                    "awslogs-group": "/ecs/GA-fetch-task-definition",
+                    "mode": "non-blocking",
                     "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
                     "awslogs-region": "us-west-2",
                     "awslogs-stream-prefix": "ecs"
-                }
+                },
+                "secretOptions": []
             },
             "systemControls": []
         }
     ],
-    "family": "fetch-def-task-definition",
-    "executionRoleArn": "arn:aws:iam::851725652419:role/ecsTaskExecutionRole",
+    "family": "GA-fetch-task-definition",
+    "executionRoleArn": "arn:aws:iam::413216369237:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 5,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -48,6 +53,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -76,7 +84,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-07-31T20:18:04.942Z",
-    "registeredBy": "arn:aws:iam::851725652419:user/shesaave",
+    "registeredAt": "2024-09-24T20:26:39.909Z",
+    "registeredBy": "arn:aws:sts::413216369237:assumed-role/Admin/reechak-Isengard",
     "tags": []
 }
