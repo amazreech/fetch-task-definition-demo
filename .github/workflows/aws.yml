@@ -37,6 +37,7 @@ env:
   ECS_SERVICE: github-actions-demo-service                                                                                    # Amazon ECS service name
   ECS_CLUSTER: Test_Cluster                                                                                                   # Amazon ECS cluster name
   ECS_TASK_DEFINITION: GA-fetch-task-definition:1                                                                             # Task Definition file, e.g. .aws/task-definition.json
+  # ECS_TASK_DEFINITION: task-definition.json                                                                                 # Task Definition file, e.g. .aws/task-definition.json
   CONTAINER_NAME: app                                                                                                         # Name of the container in the containerDefinitions section of your task definition
 
 permissions:
